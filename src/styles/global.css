@@ -195,7 +195,7 @@ h3 {
 
 .pad {
   position: absolute;
-  left: calc(var(--bus-x) - var(--gutter));
+  left: var(--bus-x);
   top: 6.15rem;
   width: 18px;
   height: 18px;

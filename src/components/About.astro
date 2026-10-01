@@ -7,7 +7,7 @@ import { about } from '../data/site';
   <h2 id="titulo-sobre" class="section-title">Sobre mí</h2>
 
   <div class="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
-    <div class="max-w-[60ch] space-y-4 text-lg leading-relaxed">
+    <div class="flex max-w-[60ch] flex-col gap-4 text-lg leading-relaxed">
       {about.bio.map((p) => <p class="m-0">{p}</p>)}
     </div>
 
