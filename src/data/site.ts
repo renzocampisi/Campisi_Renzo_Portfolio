@@ -76,7 +76,7 @@ export const projects: Project[] = [
     context: 'Seminario de Trabajo Final, UAI',
     description:
       'Sistema de inventario para empresas constructoras. Cada herramienta lleva un código QR: al escanearlo se sabe dónde está, quién la tiene y cuándo tiene que volver. Incluye remitos digitales, control de mantenimiento y un panel con IA.',
-    stack: ['React', 'Vite', 'Node.js', 'Express', 'Supabase', 'PostgreSQL', 'API de Anthropic'],
+    stack: ['React', 'Vite', 'Node.js', 'Express', 'Supabase', 'PostgreSQL', 'API de Gemini'],
     links: [
       { label: 'Ver demo', href: 'https://fieldstock-ai.vercel.app/bienvenida' },
       { label: 'Repositorio', href: 'https://github.com/renzocampisi/ProyectoTFI' },
