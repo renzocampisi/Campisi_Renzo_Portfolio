@@ -25,20 +25,31 @@ export const about = {
     'Soy estudiante de Ingeniería en Sistemas en la UAI y me faltan 9 materias para recibirme.',
     'Desde 2018 reparo computadoras y mantengo redes en una empresa de transporte, y desde 2016 llevo el control de stock y las tareas administrativas de una empresa familiar.',
     'Mi proyecto más grande es FieldStock AI, un sistema para saber dónde está cada herramienta de una obra.',
-    'Busco mi primer trabajo en desarrollo, en un equipo del que pueda aprender y al que pueda aportar desde el primer día.',
   ],
   skills: [
     {
       group: 'Frontend',
-      items: ['HTML', 'CSS', 'JavaScript', 'React', 'Vite', 'Astro', 'Tailwind CSS'],
+      items: [
+        'HTML',
+        'CSS',
+        'JavaScript',
+        { name: 'React', learning: true },
+        'Vite',
+        { name: 'Astro', learning: true },
+        'Tailwind CSS',
+      ],
     },
     {
       group: 'Backend',
-      items: ['Node.js', 'Express', 'MongoDB', 'PostgreSQL', 'Supabase'],
+      items: ['Node.js', 'Express', 'PostgreSQL', 'Supabase'],
     },
     {
       group: 'Herramientas',
-      items: ['Git', 'GitHub', 'GitHub Pages', 'Vercel', 'Armado y reparación de PC', 'Redes'],
+      items: ['Git', 'GitHub', 'GitHub Pages', 'Vercel'],
+    },
+    {
+      group: 'Hardware y soporte',
+      items: ['Armado y reparación de PC', 'Redes'],
     },
   ],
 };

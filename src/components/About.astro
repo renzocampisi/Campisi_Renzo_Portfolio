@@ -17,13 +17,23 @@ import { about } from '../data/site';
           <div>
             <h3 class="m-0 mb-3 text-2xl text-[var(--copper-ink)]">{s.group}</h3>
             <ul class="m-0 flex list-none flex-wrap gap-2 p-0">
-              {s.items.map((i) => (
-                <li class="smd">{i}</li>
-              ))}
+              {s.items.map((i) => {
+                const item = typeof i === 'string' ? { name: i, learning: false } : i;
+                return (
+                  <li class="smd" data-learning={item.learning}>
+                    {item.name}
+                    {item.learning && <span class="sr-only"> (en formación)</span>}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         ))
       }
+      <p class="m-0 flex items-center gap-3 text-[0.95rem] text-[var(--ink-dim)]">
+        <span class="smd" data-learning="true">En formación</span>
+        Conocimiento inicial, en crecimiento.
+      </p>
     </div>
   </div>
 </section>
