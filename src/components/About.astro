@@ -1,0 +1,29 @@
+---
+import { about } from '../data/site';
+---
+
+<section id="sobre-mi" class="section" aria-labelledby="titulo-sobre">
+  <span class="pad" data-lit="false"></span>
+  <h2 id="titulo-sobre" class="section-title">Sobre mí</h2>
+
+  <div class="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
+    <div class="flex max-w-[60ch] flex-col gap-4 text-lg leading-relaxed">
+      {about.bio.map((p) => <p class="m-0">{p}</p>)}
+    </div>
+
+    <div class="space-y-8">
+      {
+        about.skills.map((s) => (
+          <div>
+            <h3 class="m-0 mb-3 text-2xl text-[var(--copper-ink)]">{s.group}</h3>
+            <ul class="m-0 flex list-none flex-wrap gap-2 p-0">
+              {s.items.map((i) => (
+                <li class="smd">{i}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

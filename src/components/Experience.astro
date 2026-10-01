@@ -1,0 +1,68 @@
+---
+import { experience, education, courses, languages } from '../data/site';
+---
+
+<section id="experiencia" class="section" aria-labelledby="titulo-experiencia">
+  <span class="pad" data-lit="false"></span>
+  <h2 id="titulo-experiencia" class="section-title">Experiencia y formación</h2>
+
+  <div class="grid gap-14 lg:grid-cols-2 lg:gap-16">
+    <div>
+      <h3 class="m-0 mb-6 text-3xl text-[var(--copper-ink)]">Trabajo</h3>
+      <ol class="m-0 list-none space-y-8 p-0">
+        {
+          experience.map((e) => (
+            <li class="relative border-l-2 border-[var(--trace-off)] pl-6">
+              <span class="absolute top-[0.55rem] -left-[7px] h-3 w-3 rounded-full border-2 border-[var(--copper)] bg-[var(--board)]" aria-hidden="true" />
+              <p class="m-0 font-mono text-sm tracking-wide text-[var(--ink-dim)]">{e.period}</p>
+              <h4 class="m-0 mt-1 text-xl font-bold">{e.role}</h4>
+              <p class="m-0 text-[var(--ink-dim)]">{e.place}</p>
+              <ul class="m-0 mt-2 list-disc space-y-1 pl-5 marker:text-[var(--copper-ink)]">
+                {e.points.map((p) => <li>{p}</li>)}
+              </ul>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+
+    <div class="space-y-10">
+      <div>
+        <h3 class="m-0 mb-6 text-3xl text-[var(--copper-ink)]">Estudios</h3>
+        <ul class="m-0 list-none space-y-5 p-0">
+          {
+            education.map((e) => (
+              <li>
+                <h4 class="m-0 text-xl font-bold">{e.title}</h4>
+                <p class="m-0 text-[var(--ink-dim)]">{e.place}</p>
+                <p class="m-0">{e.detail}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="m-0 mb-4 text-3xl text-[var(--copper-ink)]">Cursos e idiomas</h3>
+        <ul class="m-0 list-none space-y-3 p-0">
+          {
+            courses.map((c) => (
+              <li>
+                <span class="font-bold">{c.title}</span>
+                <span class="text-[var(--ink-dim)]">, {c.place}, {c.year}</span>
+              </li>
+            ))
+          }
+          {
+            languages.map((l) => (
+              <li>
+                <span class="font-bold">{l.name}</span>
+                <span class="text-[var(--ink-dim)]">: {l.level}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

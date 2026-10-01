@@ -1,0 +1,53 @@
+---
+import { projects } from '../data/site';
+---
+
+<section id="proyectos" class="section" aria-labelledby="titulo-proyectos">
+  <span class="pad" data-lit="false"></span>
+  <h2 id="titulo-proyectos" class="section-title">Proyectos</h2>
+
+  <ul class="m-0 grid list-none gap-14 p-0">
+    {
+      projects.map((p) => (
+        <li>
+          <article class="ic" aria-labelledby={`proy-${p.id}`}>
+            <span class="ic-notch" aria-hidden="true"></span>
+            <span class="ic-dot" aria-hidden="true"></span>
+
+            <div class="flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
+              <div class="flex items-baseline gap-4">
+                <span class="ref" aria-hidden="true">{p.ref}</span>
+                <h3 id={`proy-${p.id}`} class="m-0 text-4xl md:text-5xl">{p.title}</h3>
+              </div>
+              <p class="m-0 flex items-center gap-2.5 font-semibold">
+                <span class="led" data-status={p.status} aria-hidden="true" />
+                {p.statusLabel}
+              </p>
+            </div>
+
+            <p class="mt-1 mb-0 text-[0.95rem] text-[var(--ic-dim)]">{p.context}</p>
+            <p class="mt-4 mb-0 max-w-[65ch] text-[1.05rem] leading-relaxed">{p.description}</p>
+
+            <ul class="m-0 mt-5 flex list-none flex-wrap gap-2 p-0" aria-label="Tecnologías">
+              {p.stack.map((s) => (
+                <li class="smd">{s}</li>
+              ))}
+            </ul>
+
+            <div class="mt-6 flex flex-wrap gap-3">
+              {p.links.map((l) => (
+                <a class="ic-link" href={l.href} target="_blank" rel="noopener noreferrer">
+                  {l.label}
+                  <span class="sr-only"> de {p.title} (se abre en una pestaña nueva)</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 17 17 7M8 7h9v9" />
+                  </svg>
+                </a>
+              ))}
+            </div>
+          </article>
+        </li>
+      ))
+    }
+  </ul>
+</section>
