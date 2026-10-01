@@ -33,7 +33,7 @@ export const about = {
     },
     {
       group: 'Backend',
-      items: ['Node.js', 'Express', 'MongoDB', 'PostgreSQL', 'Supabase'],
+      items: ['Node.js', 'Express', 'PostgreSQL', 'Supabase'],
     },
     {
       group: 'Herramientas',
