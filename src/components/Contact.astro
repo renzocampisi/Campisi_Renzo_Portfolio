@@ -1,0 +1,108 @@
+---
+import { person } from '../data/site';
+
+const channels = [
+  { label: 'Email', value: person.email, href: `mailto:${person.email}` },
+  { label: 'Celular', value: person.phone, href: person.phoneHref },
+  { label: 'GitHub', value: 'github.com/renzocampisi', href: person.github, external: true },
+  { label: 'LinkedIn', value: 'Renzo Campisi', href: person.linkedin, external: true },
+];
+---
+
+<section id="contacto" class="section" aria-labelledby="titulo-contacto">
+  <span class="pad" data-lit="false"></span>
+  <h2 id="titulo-contacto" class="section-title">Contacto</h2>
+
+  <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+    <div>
+      <p class="m-0 mb-8 max-w-[40ch] text-lg">
+        Si tenés una búsqueda abierta o querés charlar sobre un proyecto, escribime. Respondo por mail.
+      </p>
+      <ul class="m-0 list-none space-y-4 p-0">
+        {
+          channels.map((c) => (
+            <li class="flex items-baseline gap-4">
+              <span class="w-24 flex-none font-mono text-sm tracking-wide text-[var(--ink-dim)]">{c.label}</span>
+              <a
+                href={c.href}
+                class="text-lg font-semibold break-all"
+                {...(c.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              >
+                {c.value}
+                {c.external && <span class="sr-only"> (se abre en una pestaña nueva)</span>}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <form id="form-contacto" novalidate class="space-y-5" aria-describedby="form-estado">
+      <div class="field">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="err-nombre" />
+        <p class="field-error" id="err-nombre"></p>
+      </div>
+      <div class="field">
+        <label for="email">Tu email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="err-email" />
+        <p class="field-error" id="err-email"></p>
+      </div>
+      <div class="field">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required aria-describedby="err-mensaje"></textarea>
+        <p class="field-error" id="err-mensaje"></p>
+      </div>
+      <div class="flex flex-wrap items-center gap-4">
+        <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+        <p id="form-estado" class="m-0 text-[0.95rem] text-[var(--ink-dim)]" role="status"></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script define:vars={{ to: person.email }}>
+  const form = document.getElementById('form-contacto');
+  const estado = document.getElementById('form-estado');
+  const reglas = {
+    nombre: (v) => (v.trim().length < 2 ? 'Escribí tu nombre (mínimo 2 letras).' : ''),
+    email: (v) =>
+      !v.trim()
+        ? 'Escribí tu email para que pueda responderte.'
+        : !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim())
+          ? 'Revisá el email, parece incompleto (ejemplo: nombre@dominio.com).'
+          : '',
+    mensaje: (v) => (v.trim().length < 10 ? 'Contame un poco más (mínimo 10 caracteres).' : ''),
+  };
+
+  function validar(campo) {
+    const input = form.elements[campo];
+    const msg = reglas[campo](input.value);
+    document.getElementById('err-' + campo).textContent = msg;
+    input.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    return !msg;
+  }
+
+  Object.keys(reglas).forEach((c) => {
+    form.elements[c].addEventListener('blur', () => validar(c));
+    form.elements[c].addEventListener('input', () => {
+      if (form.elements[c].getAttribute('aria-invalid') === 'true') validar(c);
+    });
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const errores = Object.keys(reglas).filter((c) => !validar(c));
+    if (errores.length) {
+      estado.textContent = 'Revisá los campos marcados.';
+      form.elements[errores[0]].focus();
+      return;
+    }
+    const { nombre, email, mensaje } = form.elements;
+    const asunto = 'Contacto desde tu portfolio: ' + nombre.value.trim();
+    const cuerpo = mensaje.value.trim() + '\n\n' + nombre.value.trim() + '\n' + email.value.trim();
+    estado.textContent = 'Se abrió tu programa de mail con el mensaje listo para enviar.';
+    window.location.href =
+      'mailto:' + to + '?subject=' + encodeURIComponent(asunto) + '&body=' + encodeURIComponent(cuerpo);
+  });
+</script>
