@@ -22,7 +22,7 @@ export const nav = [
 
 export const about = {
   bio: [
-    'Soy estudiante de Ingeniería en Sistemas en la UAI y me faltan 9 materias para recibirme.',
+    'Soy estudiante de Ingeniería en Sistemas en la UAI y me faltan 5 materias para recibirme.',
     'Desde 2018 reparo computadoras y mantengo redes en una empresa de transporte, y desde 2016 llevo el control de stock y las tareas administrativas de una empresa familiar.',
     'Mi proyecto más grande es FieldStock AI, un sistema para saber dónde está cada herramienta de una obra.',
   ],
@@ -133,7 +133,7 @@ export const education = [
   {
     title: 'Ingeniería en Sistemas',
     place: 'Universidad Abierta Interamericana (UAI)',
-    detail: 'Carrera en curso, 9 materias restantes.',
+    detail: 'Carrera en curso, 5 materias restantes.',
   },
   {
     title: 'Técnico Electrónico',
