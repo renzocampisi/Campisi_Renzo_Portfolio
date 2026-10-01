@@ -297,6 +297,11 @@ h3 {
   border-radius: 2px;
 }
 
+.smd[data-learning='true'] {
+  border: 1.5px dashed var(--copper);
+  background: transparent;
+}
+
 /* ---- Circuito integrado (proyectos) ---- */
 .ic {
   position: relative;

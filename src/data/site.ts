@@ -29,7 +29,15 @@ export const about = {
   skills: [
     {
       group: 'Frontend',
-      items: ['HTML', 'CSS', 'JavaScript', 'React', 'Vite', 'Astro', 'Tailwind CSS'],
+      items: [
+        'HTML',
+        'CSS',
+        'JavaScript',
+        { name: 'React', learning: true },
+        'Vite',
+        { name: 'Astro', learning: true },
+        'Tailwind CSS',
+      ],
     },
     {
       group: 'Backend',
@@ -37,7 +45,11 @@ export const about = {
     },
     {
       group: 'Herramientas',
-      items: ['Git', 'GitHub', 'GitHub Pages', 'Vercel', 'Armado y reparación de PC', 'Redes'],
+      items: ['Git', 'GitHub', 'GitHub Pages', 'Vercel'],
+    },
+    {
+      group: 'Hardware y soporte',
+      items: ['Armado y reparación de PC', 'Redes'],
     },
   ],
 };
