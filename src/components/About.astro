@@ -22,7 +22,7 @@ import { about } from '../data/site';
                 return (
                   <li class="smd" data-learning={item.learning}>
                     {item.name}
-                    {item.learning && <span class="sr-only"> (lo estoy aprendiendo)</span>}
+                    {item.learning && <span class="sr-only"> (en formación)</span>}
                   </li>
                 );
               })}
@@ -31,8 +31,8 @@ import { about } from '../data/site';
         ))
       }
       <p class="m-0 flex items-center gap-3 text-[0.95rem] text-[var(--ink-dim)]">
-        <span class="smd" data-learning="true" aria-hidden="true">Ejemplo</span>
-        Con borde punteado: lo estoy aprendiendo.
+        <span class="smd" data-learning="true">En formación</span>
+        Conocimiento inicial, en crecimiento.
       </p>
     </div>
   </div>
