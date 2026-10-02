@@ -2,8 +2,6 @@ export const person = {
   name: 'Renzo Campisi',
   role: 'Estudiante de Ingeniería en Sistemas',
   focus: 'Desarrollo web',
-  tagline:
-    'Mantengo computadoras y redes desde 2018. Ahora quiero construir el software que las hace más simples de usar.',
   email: 'campisirenzo0@gmail.com',
   phone: '+54 341 374-0601',
   phoneHref: 'tel:+543413740601',
