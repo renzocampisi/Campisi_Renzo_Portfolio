@@ -1,18 +1,13 @@
 ---
-// Avatar ilustrado provisorio, hasta tener una foto
+import { Image } from 'astro:assets';
+import foto from '../assets/renzo.jpg';
 ---
 
-<svg viewBox="0 0 200 200" role="img" aria-label="Avatar ilustrado de Renzo Campisi" class="block h-full w-full">
-  <rect width="200" height="200" fill="#cfe3c6" />
-  <path d="M18 200C18 152 58 138 100 138C142 138 182 152 182 200Z" fill="#12402f" />
-  <path d="M84 138L100 160L116 138Z" fill="#e2b659" />
-  <rect x="88" y="116" width="24" height="30" rx="8" fill="#c9946c" />
-  <ellipse cx="100" cy="92" rx="34" ry="40" fill="#e0b08a" />
-  <circle cx="66" cy="97" r="6" fill="#d19f78" />
-  <circle cx="134" cy="97" r="6" fill="#d19f78" />
-  <path d="M63 90C58 52 84 42 103 43C126 44 144 58 137 90C131 74 119 66 100 66C83 66 71 74 63 90Z" fill="#1c1a17" />
-  <circle cx="84" cy="97" r="3.2" fill="#1c1a17" />
-  <circle cx="116" cy="97" r="3.2" fill="#1c1a17" />
-  <path d="M77 87Q84 83 91 86M109 86Q116 83 123 87" stroke="#1c1a17" stroke-width="2.4" fill="none" stroke-linecap="round" />
-  <path d="M89 113Q100 122 111 113" stroke="#8a4f33" stroke-width="2.6" fill="none" stroke-linecap="round" />
-</svg>
+<Image
+  src={foto}
+  alt="Retrato de Renzo Campisi"
+  width={240}
+  height={240}
+  densities={[1, 2]}
+  class="block h-full w-full object-cover"
+/>
